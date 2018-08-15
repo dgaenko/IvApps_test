@@ -1,0 +1,22 @@
+<resources>
+
+    <string name="app_name">Cryptocurrency App</string>
+
+    <!-- Remote API endpoint -->
+    <string name="api_endpoint">https://api.coinmarketcap.com/v2/ticker/</string>
+
+    <!-- Error messages -->
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="datasource_is_empty">There datasource is empty</string>
+    <string name="request_error">Error while retrieving data</string>
+
+    <!-- Fragments UI elements texts -->
+    <string name="currency_symbol">Symbol:</string>
+    <string name="currency_price">Price:</string>
+    <string name="currency_change">Change</string>
+    <string name="currency_1h">1h:</string>
+    <string name="currency_24р">24h:</string>
+    <string name="currency_7d">7d:</string>
+    <string name="currency_last_updated">Last updated:</string>
+
+</resources>
