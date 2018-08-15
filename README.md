@@ -16,4 +16,4 @@ https://api.coinmarketcap.com/v2/ticker/
 https://cdn-images-1.medium.com/max/1600/1*pytFB-9DYwg2QLFATM1-1Q.gif
 
 
-<img src="https://github.com/dgaenko/LibWeatherDemo/blob/master/sample/screenshot/main.png" width="350"/>
+<img src="https://github.com/dgaenko/IvApps_test/blob/master/screenshots/currency_list.png" width="350"/> <img src="https://github.com/dgaenko/IvApps_test/blob/master/screenshots/currency_info.png" width="350"/>
