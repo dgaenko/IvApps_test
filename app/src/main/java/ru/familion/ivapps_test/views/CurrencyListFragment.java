@@ -1,16 +1,15 @@
 package ru.familion.ivapps_test.views;
 
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.List;
 
 import ru.familion.ivapps_test.R;
-import ru.familion.ivapps_test.adapters.CryptoCurrencyAdapter;
+import ru.familion.ivapps_test.adapters.CryptoCurrencyRecyclerAdapter;
 import ru.familion.ivapps_test.models.entity.Data;
 
 /**
@@ -23,11 +22,11 @@ public class CurrencyListFragment extends BaseFragment {
 
     // fragment UI views
     private View rootView;
-    private ListView _cryptoCurrencyListView;
+    private RecyclerView _cryptoCurrencyListView;
 
     // fragment data list
     private List<Data> _currencyData;
-    private CryptoCurrencyAdapter _adapter;
+    private CryptoCurrencyRecyclerAdapter _adapter;
 
 
     /**
@@ -60,12 +59,7 @@ public class CurrencyListFragment extends BaseFragment {
             rootView = inflater.inflate(layout_res_id, container, false);
         }
 
-        _cryptoCurrencyListView = (ListView)rootView.findViewById(R.id.currency_list_view);
-        // set list row click listener
-        _cryptoCurrencyListView.setOnItemClickListener((adapterView, view, i, l) -> {
-            BaseFragment fragment = ((MainActivity)getActivity()).changeVisibleFragment(BaseFragment.CURRENCY_INFO_FRAGMENT);
-            fragment.showCurrencyInfo(_currencyData.get(i));
-        });
+        _cryptoCurrencyListView = (RecyclerView)rootView.findViewById(R.id.currency_list_view);
 
         return rootView;
     }
@@ -85,7 +79,12 @@ public class CurrencyListFragment extends BaseFragment {
     @Override
     public void setCurrencyListViewData(List<Data> cryptoСurrencyData) {
         _currencyData = cryptoСurrencyData;
-        _adapter = new CryptoCurrencyAdapter(getActivity(), cryptoСurrencyData);
+        _adapter = new CryptoCurrencyRecyclerAdapter(getActivity(), cryptoСurrencyData);
+        // set list row click listener
+        _adapter.setOnItemClickListener( (position, view) -> {
+            BaseFragment fragment = ((MainActivity)getActivity()).changeVisibleFragment(BaseFragment.CURRENCY_INFO_FRAGMENT);
+            fragment.showCurrencyInfo(_currencyData.get(position));
+        });
         _cryptoCurrencyListView.setAdapter(_adapter);
     }
 
